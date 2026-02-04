@@ -1,15 +1,13 @@
 import express from 'express';
-import dotenv from 'dotenv';
-import { neon } from '@neondatabase/serverless';
-import { Pool } from 'pg';
 import { pool } from './config.js';
 import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(
   cors({
-    origin: "http://localhost:5174",
-  
+    origin: "http://localhost:5173",
   })
 );
 app.get("/projects", async (req, res) => {
@@ -25,6 +23,7 @@ app.get("/projects", async (req, res) => {
         client.release();
     }
 });
+
 app.get("/experience", async (req, res) => {
     const client = await pool.connect();
    

@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-import { neon } from '@neondatabase/serverless';
 import { Pool } from 'pg';
 dotenv.config();
 
